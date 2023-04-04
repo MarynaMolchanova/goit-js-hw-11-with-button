@@ -97,6 +97,10 @@ async function getPictures(url) {
     if (queryObj.page === 1) {
       Notify.info(`Hooray! We found ${response.data.totalHits} images.`);
     }
+    if (queryObj.page * queryObj.perPage > response.data.totalHits) {
+      buttonLoadMore.disabled = true;
+    }
+
     buttonLoadMoreState('block');
     gallery.insertAdjacentHTML('beforeend', createPhotosHtml(images));
     scroll();
