@@ -99,6 +99,7 @@ async function getPictures(url) {
     }
     if (queryObj.page * queryObj.perPage > response.data.totalHits) {
       buttonLoadMore.disabled = true;
+      clearGallery();
     }
 
     buttonLoadMoreState('block');
